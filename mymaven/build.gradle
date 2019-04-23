@@ -1,13 +1,27 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    artifactId = 'MyUtils'
+    uploadName = 'MyMavenStudy'
+    publishVersion = '1.0.0'
+
+    userOrg = rootProject.ext.userOrg
+    repoName = rootProject.ext.repoName
+    groupId = rootProject.ext.groupId
+    desc = rootProject.ext.desc
+    website = rootProject.ext.website
+    licences = rootProject.ext.licences
+
+}
 
 android {
-    compileSdkVersion 28
-
-
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 28
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -25,10 +39,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
+

@@ -2,15 +2,18 @@
 
 buildscript {
     repositories {
+        mavenCentral()
         google()
         jcenter()
-        
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        classpath 'com.novoda:bintray-release:0.8.1'
     }
 }
 
@@ -18,10 +21,17 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+ext {
+    userOrg = 'houziershi' //用户名
+    repoName = "MyMaven" //仓库名
+    groupId = 'com.hou.MyMavenUtils' //groupId
+    desc = 'useful tool for android' //描述
+    website = 'https://github.com/houziershi/MyMavenStudy' //地址，填写真实可访问地址
+    licences = ['Apache-2.0']  //描述，填写licences
 }
